@@ -5,7 +5,7 @@ pub struct Opt {
     #[structopt(default_value = "0.0.0.0", short, long)]
     pub host: String,
 
-    #[structopt(default_value = "1337", short, long)]
+    #[structopt(default_value = "8000", short, long)]
     pub port: u16,
 }
 

@@ -1,6 +1,8 @@
 use log::debug;
 mod app;
 mod config;
+mod handlers;
+mod models;
 
 #[async_std::main]
 async fn main() -> Result<(), std::io::Error> {
