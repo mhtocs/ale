@@ -38,3 +38,8 @@ pub struct Query {
 
     pub targets: Vec<Target>,
 }
+
+#[derive(Debug)]
+pub struct State {
+    pub db_pool: Option<sqlx::SqlitePool>,
+}
