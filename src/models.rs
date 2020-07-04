@@ -13,7 +13,7 @@ pub struct Range {
     pub to: chrono::DateTime<Utc>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Target {
     pub target: Option<String>,
 
@@ -26,7 +26,7 @@ pub struct Target {
 
 //https://medium.com/@vsbabu/sqlite3-cte-tricks-for-time-series-analysis-196dbf3ffdf9
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Query {
     pub range: Range,
 
@@ -42,4 +42,16 @@ pub struct Query {
 #[derive(Debug)]
 pub struct State {
     pub db_pool: Option<sqlx::SqlitePool>,
+}
+
+impl State {
+    pub async fn get_conn(&self) -> sqlx::pool::PoolConnection<sqlx::sqlite::SqliteConnection> {
+        self.db_pool.as_ref().unwrap().acquire().await.unwrap()
+    }
+}
+
+pub enum MetricType {
+    Index,
+    Cpu,
+    Mem,
 }
