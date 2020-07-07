@@ -1,7 +1,6 @@
 pub mod config;
 mod handlers;
 pub mod models;
-mod util;
 
 use models::State;
 use tide::Server;

@@ -3,17 +3,8 @@ use chrono::{DateTime, NaiveDateTime, Utc};
 use tide::http::{Request, Response, Url};
 use tide::Body;
 
-// hack for logging
-//use std::sync::Once;
-//static START: Once = Once::new();
-
 #[async_std::test]
 async fn test_index() {
-    /*
-    START.call_once(|| {
-        pretty_env_logger::init();
-    });*/
-
     let app = make_app(State { db_pool: None });
     let req = Request::post(Url::parse("http://localhost/").unwrap());
     let res: Response = app.respond(req).await.unwrap();
@@ -31,7 +22,13 @@ async fn test_search() {
 #[async_std::test]
 async fn test_query() {
     pretty_env_logger::init();
-    let app = make_app(State { db_pool: None });
+    dotenv::dotenv().ok();
+
+    let db_url = std::env::var("TEST_DATABASE_URL").unwrap();
+
+    let app = make_app(State {
+        db_pool: Some(sqlx::SqlitePool::new(&db_url).await.unwrap()),
+    });
 
     let query = Query {
         range: Range {

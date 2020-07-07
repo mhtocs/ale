@@ -1,13 +1,45 @@
-// a sample test
+use sqlx::SqlitePool;
+
+// test using inmemory db (easier)
+
 #[async_std::test]
-async fn test_sample() {
+async fn test_db_works() {
     pretty_env_logger::init();
-    let db_url = std::env::var("DATABASE_URL").unwrap();
-    dbg!(db_url);
-    let pool = sqlx::SqlitePool::new("sqlite::memory:").await.unwrap();
-    let conn = pool.acquire().await.unwrap();
-    /*    sqlx::query!("select 1")
-    .select_one(&mut conn)
-    .await
-    .unwrap();*/
+    dotenv::dotenv().ok();
+
+    let db_url = std::env::var("TEST_DATABASE_URL").unwrap();
+    let pool = SqlitePool::new(&db_url).await.unwrap(); // sqlite::memory: doesnt work! see sqlx/issues/325
+    run_query(
+        r#" 
+            CREATE TABLE index_metrics(
+                id INTEGER NOT NULL,
+                epoch INTEGER NOT NULL,
+                value INTEGER NOT NULL,
+                PRIMARY KEY(id)
+            ); 
+        "#,
+        &pool,
+    )
+    .await;
+
+    run_query(
+        r#" 
+            INSERT INTO index_metrics values(
+                0,
+                987654321,
+                42
+            ); 
+        "#,
+        &pool,
+    )
+    .await;
+
+    let fetch = run_query("SELECT * from INDEX_METRICS", &pool).await;
+
+    dbg!(fetch);
+}
+
+//util method
+async fn run_query(query: &str, pool: &SqlitePool) {
+    sqlx::query(query).execute(pool).await.unwrap();
 }

@@ -1,7 +1,7 @@
 use log::debug;
 
 use ale::{config, make_app, models::*};
-use sqlx::{Pool, SqlitePool};
+use sqlx::SqlitePool;
 
 #[async_std::main]
 async fn main() -> Result<(), std::io::Error> {
@@ -12,7 +12,7 @@ async fn main() -> Result<(), std::io::Error> {
     let (host, port) = (opt.host.to_string(), opt.port);
     debug!("host:: {}, port:: {}", host, port);
 
-    let db_url = std::env::var("DATABASE_URL").unwrap();
+    let db_url = std::env::var("TEST_DATABASE_URL").unwrap();
     let app = make_app(State {
         db_pool: Some(SqlitePool::new(&db_url).await.unwrap()),
     });

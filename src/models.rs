@@ -1,5 +1,6 @@
-use chrono::Utc;
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use sqlx::SqlitePool;
 
 #[derive(Debug, Serialize)]
 pub struct Payload {
@@ -44,14 +45,37 @@ pub struct State {
     pub db_pool: Option<sqlx::SqlitePool>,
 }
 
-impl State {
-    pub async fn get_conn(&self) -> sqlx::pool::PoolConnection<sqlx::sqlite::SqliteConnection> {
-        self.db_pool.as_ref().unwrap().acquire().await.unwrap()
-    }
-}
-
+#[derive(Debug, Serialize)]
 pub enum MetricType {
     Index,
     Cpu,
     Mem,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Metric {
+    pub id: i32,
+    pub epoch: u64,
+    pub val: u64,
+}
+
+impl Metric {
+    pub fn fetch_metrics(
+        _from: DateTime<Utc>,
+        _to: DateTime<Utc>,
+        _type: MetricType,
+        pool: &SqlitePool,
+    ) -> Vec<Self> {
+        sqlx::query(r#"SELECT * FROM INDEX_METRICS;"#).fetch(pool);
+        match _type {
+            MetricType::Index => (),
+            _ => (),
+        }
+
+        vec![Metric {
+            id: 0,
+            epoch: 6217621,
+            val: 2112,
+        }]
+    }
 }
