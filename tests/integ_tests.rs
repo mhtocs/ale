@@ -13,18 +13,29 @@ async fn test_index() {
 
 #[async_std::test]
 async fn test_search() {
+    pretty_env_logger::init();
+    dotenv::dotenv().ok();
+
     let app = make_app(State { db_pool: None });
     let req = Request::post(Url::parse("http://localhost/search").unwrap());
-    let res: Response = app.respond(req).await.unwrap();
+    let mut res: Response = app.respond(req).await.unwrap();
+    log::debug!(
+        "RESPONSE FROM /search :: {:#?}",
+        res.body_string()
+            .await
+            .unwrap()
+            .as_str()
+            .parse::<serde_json::Value>()
+    );
     assert_eq!(res.status(), 200);
 }
 
 #[async_std::test]
 async fn test_query() {
-    pretty_env_logger::init();
+    //   pretty_env_logger::init();
     dotenv::dotenv().ok();
 
-    let db_url = std::env::var("TEST_DATABASE_URL").unwrap();
+    let db_url = std::env::var("DATABASE_URL").unwrap();
 
     let app = make_app(State {
         db_pool: Some(sqlx::SqlitePool::new(&db_url).await.unwrap()),
@@ -48,7 +59,15 @@ async fn test_query() {
     let body = Body::from_json(&query).unwrap();
     req.set_body(body);
     // let query: Query = body.into_json().await.unwrap();
-    let res: Response = app.respond(req).await.unwrap();
+    let mut res: Response = app.respond(req).await.unwrap();
+    log::debug!(
+        "RESPONSE FROM /query :: {:#?}",
+        res.body_string()
+            .await
+            .unwrap()
+            .as_str()
+            .parse::<serde_json::Value>()
+    );
     assert_eq!(res.status(), 200);
 }
 

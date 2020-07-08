@@ -1,5 +1,6 @@
+use ale::models;
+use models::Metric;
 use sqlx::SqlitePool;
-
 // test using inmemory db (easier)
 
 #[async_std::test]
@@ -26,7 +27,7 @@ async fn test_db_works() {
         r#" 
             INSERT INTO index_metrics values(
                 0,
-                987654321,
+                9876,
                 42
             ); 
         "#,
@@ -34,9 +35,25 @@ async fn test_db_works() {
     )
     .await;
 
-    let fetch = run_query("SELECT * from INDEX_METRICS", &pool).await;
+    let fetch: Vec<Metric> = sqlx::query_as!(
+        models::Metric,
+        r#"
+            SELECT id,epoch,
+                    value
+            FROM index_metrics
+            WHERE epoch >= $1
+                AND  epoch < $2
+            GROUP by epoch / $3;
+            "#,
+        0,
+        999999,
+        20
+    )
+    .fetch_all(&pool)
+    .await
+    .unwrap();
 
-    dbg!(fetch);
+    log::debug!("DATA FROM MEMORY DB :: {:#?}", fetch);
 }
 
 //util method

@@ -50,32 +50,45 @@ pub enum MetricType {
     Index,
     Cpu,
     Mem,
+    Nil,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Metric {
     pub id: i32,
-    pub epoch: u64,
-    pub val: u64,
+    pub epoch: i32,
+    pub value: i32,
 }
 
 impl Metric {
-    pub fn fetch_metrics(
+    pub async fn fetch_metrics(
         _from: DateTime<Utc>,
         _to: DateTime<Utc>,
+        _interval: u64,
         _type: MetricType,
         pool: &SqlitePool,
     ) -> Vec<Self> {
-        sqlx::query(r#"SELECT * FROM INDEX_METRICS;"#).fetch(pool);
+        let fetch: Vec<Metric> = sqlx::query_as!(
+            Metric,
+            r#"
+            SELECT id,
+                   epoch,
+                   value
+            FROM  index_metrics
+            "#,
+            //0,
+            //999999,
+        )
+        .fetch_all(pool)
+        .await
+        .unwrap();
+
         match _type {
             MetricType::Index => (),
             _ => (),
         }
 
-        vec![Metric {
-            id: 0,
-            epoch: 6217621,
-            val: 2112,
-        }]
+        log::debug!("FETCH_METRICS FROM PERSISTED DB:: {:#?}", &fetch);
+        fetch
     }
 }
