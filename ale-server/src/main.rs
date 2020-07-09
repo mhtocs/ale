@@ -1,6 +1,6 @@
 use log::debug;
 
-use ale::{config, make_app, models::*};
+use ale_server::{config, make_app, models::*};
 use sqlx::SqlitePool;
 
 #[async_std::main]

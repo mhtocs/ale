@@ -1,5 +1,5 @@
 [package]
-name = "ale"
+name = "ale-server"
 version = "0.1.0"
 authors = ["mahto"]
 edition = "2018"

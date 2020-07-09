@@ -1,4 +1,4 @@
-use ale::models;
+use ale_server::models;
 use models::Metric;
 use sqlx::SqlitePool;
 // test using inmemory db (easier)

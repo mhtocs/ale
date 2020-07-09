@@ -1,4 +1,4 @@
-use ale::{make_app, models::*};
+use ale_server::{make_app, models::*};
 use chrono::{DateTime, NaiveDateTime, Utc};
 use tide::http::{Request, Response, Url};
 use tide::Body;

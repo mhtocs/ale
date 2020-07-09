@@ -67,28 +67,38 @@ impl Metric {
         _interval: u64,
         _type: MetricType,
         pool: &SqlitePool,
-    ) -> Vec<Self> {
-        let fetch: Vec<Metric> = sqlx::query_as!(
+    ) -> Payload {
+        let metrics: Vec<Metric> = sqlx::query_as!(
             Metric,
             r#"
             SELECT id,
-                   epoch,
-                   value
+                  epoch,
+                  value
             FROM  index_metrics
-            "#,
-            //0,
-            //999999,
+            "#
+            //WHERE epoch > $1
+            //AND epoch <= $2
+            //"#,
+           // _from.timestamp_millis(),
+            //_to.timestamp_millis(),
         )
         .fetch_all(pool)
         .await
         .unwrap();
 
-        match _type {
-            MetricType::Index => (),
-            _ => (),
-        }
+        log::debug!("METRIC :: FETCH_METRICS:: {:#?}", metrics);
 
-        log::debug!("FETCH_METRICS FROM PERSISTED DB:: {:#?}", &fetch);
-        fetch
+        let datapoints: Vec<[i64; 2]> = metrics
+            .iter()
+            .map(|m| [m.value as i64, (m.epoch as i64) * 1000])
+            .collect();
+
+        let pp = Payload {
+            target: "index_metrics".to_owned(),
+            datapoints,
+        };
+
+        log::debug!("FETCH_METRICS FROM PERSISTED DB:: \n{:#?}", &pp);
+        pp
     }
 }
