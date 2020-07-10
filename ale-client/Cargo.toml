@@ -18,4 +18,5 @@ log = "0.4.8"
 structopt = "0.2.15"
 anyhow = "1.0"
 refinery = "0.3.0"
+sysinfo = "0.14.11"
 sqlx = { version = "0.3.4", features = ["runtime-async-std", "macros", "chrono", "json", "sqlite", "uuid"]}
