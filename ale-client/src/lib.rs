@@ -8,7 +8,8 @@ use sysutil::SystemUtil;
 
 pub async fn add_metric(state: State, metric: Metric) -> Result<u64, sqlx::error::Error> {
     let pool = state.db_pool.as_ref().unwrap();
-    let metrics = SystemUtil::from(System::new_all(), 212, 212, 313);
+    let sys = SystemUtil::from(System::new_all(), 212, 212, 313);
+    let info = sys.get_sys_info();
 
     sqlx::query!(
         "INSERT into index_metrics (epoch, value) VALUES ($1,$2);",
