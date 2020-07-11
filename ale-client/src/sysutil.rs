@@ -1,5 +1,9 @@
+use chrono::Local;
+use serde::{Deserialize, Serialize};
 use std::fmt;
 use sysinfo::{ProcessExt, ProcessorExt, System, SystemExt};
+
+type Result<T> = std::result::Result<T, ProcNotFound>;
 
 #[derive(Debug)]
 /// An Error for process not found
@@ -18,29 +22,30 @@ impl fmt::Display for ProcNotFound {
     }
 }
 
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SystemInfo {
-    total_memory: u64,
-    used_memory: u64,
-    total_swap: u64,
-    used_swap: u64,
-    cpu_usage: f32,
-    ela: ProcInfo,
-    es: ProcInfo,
-    sysevt: ProcInfo,
+    pub last_updated: i64,
+    pub total_memory: i64,
+    pub used_memory: i64,
+    pub total_swap: i64,
+    pub used_swap: i64,
+    pub cpu_usage: f32,
+    pub ela: ProcInfo,
+    pub es: ProcInfo,
+    pub sysevt: ProcInfo,
 }
 
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ProcInfo {
-    name: String,
-    used_memory: u64,
-    used_virtual: u64,
-    cpu_usage: f32,
-    read_bytes: u64,
-    total_read_bytes: u64,
-    written_bytes: u64,
-    total_written_bytes: u64,
+    pub name: String,
+    pub used_memory: u64,
+    pub used_virtual: u64,
+    pub cpu_usage: f32,
+    pub read_bytes: u64,
+    pub total_read_bytes: u64,
+    pub written_bytes: u64,
+    pub total_written_bytes: u64,
 }
-
-type Result<T> = std::result::Result<T, ProcNotFound>;
 
 impl ProcInfo {
     pub fn update(&mut self, sys: &System, pid: i32) -> Result<()> {
@@ -55,7 +60,7 @@ impl ProcInfo {
             |proc| {
                 self.used_memory = proc.memory();
                 self.used_virtual = proc.virtual_memory();
-                self.cpu_usage = proc.cpu_usage();
+                self.cpu_usage = proc.cpu_usage() / sys.get_processors().len() as f32;
 
                 let du = proc.disk_usage();
 
@@ -87,8 +92,8 @@ impl ProcInfo {
         self.used_memory = 0;
         self.cpu_usage = 0.0;
         self.read_bytes = 0;
-        self.total_read_bytes = 0;
         self.written_bytes = 0;
+        self.total_read_bytes = 0;
         self.total_written_bytes = 0;
     }
 }
@@ -102,13 +107,14 @@ pub struct SystemUtil {
 }
 
 impl SystemUtil {
-    pub fn from(sys: System, ela_pid: i32, es_pid: i32, sysevt_pid: i32) -> Self {
+    pub fn with(sys: System, ela_pid: i32, es_pid: i32, sysevt_pid: i32) -> Self {
         SystemUtil {
             sys,
             ela_pid,
             es_pid,
             sysevt_pid,
             info: SystemInfo {
+                last_updated: Local::now().timestamp(),
                 ela: ProcInfo::new("ela"),
                 es: ProcInfo::new("es"),
                 sysevt: ProcInfo::new("sysevt"),
@@ -121,16 +127,17 @@ impl SystemUtil {
         }
     }
 
-    pub fn get_sys_info(mut self) -> SystemInfo {
+    pub fn get_sys_info(&mut self) -> &SystemInfo {
         self.sys.refresh_all();
-        self.info.total_memory = self.sys.get_total_memory();
-        self.info.used_memory = self.sys.get_used_memory();
-        self.info.total_swap = self.sys.get_total_swap();
-        self.info.used_swap = self.sys.get_used_swap();
+        self.info.last_updated = Local::now().timestamp();
+        self.info.total_memory = self.sys.get_total_memory() as i64;
+        self.info.used_memory = self.sys.get_used_memory() as i64;
+        self.info.total_swap = self.sys.get_total_swap() as i64;
+        self.info.used_swap = self.sys.get_used_swap() as i64;
         self.info.cpu_usage = self.sys.get_global_processor_info().get_cpu_usage();
         self.info.ela.update(&self.sys, self.ela_pid).unwrap();
         self.info.es.update(&self.sys, self.es_pid).unwrap();
         self.info.sysevt.update(&self.sys, self.sysevt_pid).unwrap();
-        self.info
+        &self.info
     }
 }
