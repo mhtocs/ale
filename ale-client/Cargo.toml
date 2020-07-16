@@ -17,6 +17,10 @@ log = "0.4.8"
 fern = { version = "0.6.0", features = ["colored"]}
 structopt = "0.2.15"
 anyhow = "1.0"
-refinery = "0.3.0"
 sysinfo = "0.14.11"
-sqlx = { version = "0.3.4", features = ["runtime-async-std", "macros", "chrono", "json", "sqlite", "uuid"]}
+
+
+[profile.release]
+opt-level = 'z'  # Optimize for size.
+lto = true
+codegen-units = 1

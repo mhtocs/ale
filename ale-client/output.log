@@ -10524,3 +10524,3035 @@ VALUES
 |[2020-07-12][03:33:42]|[ale_client]|[INFO]| sleeping for :: 5s|
 |[2020-07-12][03:33:47]|[ale_client]|[INFO]| woke up|
 |[2020-07-12][03:33:47]|[ale_client::config]|[ERROR]| served panicked :: panicked at 'called `Result::unwrap()` on an `Err` value: ProcNotFound { proc_name: "ela", pid: 46680 }', src/sysutil.rs:138:9|
+|[2020-07-12][03:46:03]|[ale_client::config]|[ERROR]| served panicked :: panicked at 'called `Result::unwrap()` on an `Err` value: ProcNotFound { proc_name: "ela", pid: 46680 }', src/sysutil.rs:138:9|
+|[2020-07-12][03:48:14]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505894,
+    total_memory: 8153912,
+    used_memory: 1589800,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 100.0,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:14]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:14]|[sqlx::query]|[DEBUG]| PRAGMA journal_mode = ..., elapsed: 180.000ns
+
+PRAGMA journal_mode = WAL;
+PRAGMA synchronous = NORMAL;
+|
+|[2020-07-12][03:48:14]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 99.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:14]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:14]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:19]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:19]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505899,
+    total_memory: 8153912,
+    used_memory: 1593848,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.86803,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:19]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:19]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 121.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:19]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:19]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:24]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:24]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505904,
+    total_memory: 8153912,
+    used_memory: 1593668,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.8994,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:24]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:24]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 98.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:24]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:24]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:29]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:29]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505909,
+    total_memory: 8153912,
+    used_memory: 1608376,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.76557,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:29]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:29]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 130.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:29]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:29]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:34]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:34]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505914,
+    total_memory: 8153912,
+    used_memory: 1608376,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.933205,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:34]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:34]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 97.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:34]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:34]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:39]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:39]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505919,
+    total_memory: 8153912,
+    used_memory: 1608356,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.933136,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:39]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:39]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 162.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:39]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:39]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:44]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:44]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505924,
+    total_memory: 8153912,
+    used_memory: 1608336,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.96652,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:44]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:44]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 325.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:44]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:44]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:49]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:49]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505929,
+    total_memory: 8153912,
+    used_memory: 1608320,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.93307,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:49]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:49]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 117.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:49]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:49]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:54]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:54]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505934,
+    total_memory: 8153912,
+    used_memory: 1608308,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.6989,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:54]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:54]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 88.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:54]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:54]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:48:59]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:48:59]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594505939,
+    total_memory: 8153912,
+    used_memory: 1608520,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 100.0,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 6628,
+        used_virtual: 61947904,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 0,
+        written_bytes: 0,
+        total_written_bytes: 0,
+    },
+}|
+|[2020-07-12][03:48:59]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:48:59]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 144.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:48:59]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:48:59]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:49:04]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:49:04]|[ale_client::config]|[ERROR]| served panicked :: panicked at 'called `Result::unwrap()` on an `Err` value: ProcNotFound { proc_name: "ela", pid: 50442 }', src/sysutil.rs:138:9|
+|[2020-07-12][03:51:53]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506113,
+    total_memory: 8153912,
+    used_memory: 1779076,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 100.0,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:51:53]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:51:53]|[sqlx::query]|[DEBUG]| PRAGMA journal_mode = ..., elapsed: 148.000ns
+
+PRAGMA journal_mode = WAL;
+PRAGMA synchronous = NORMAL;
+|
+|[2020-07-12][03:51:53]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 57.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:51:53]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:51:53]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:51:58]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:51:58]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506118,
+    total_memory: 8153912,
+    used_memory: 1740456,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 100.0,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:51:58]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:51:58]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 81.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:51:58]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:51:58]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:03]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:03]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506123,
+    total_memory: 8153912,
+    used_memory: 1818460,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.83356,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:03]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:03]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 101.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:03]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:03]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:08]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:08]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506128,
+    total_memory: 8153912,
+    used_memory: 2027216,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.732796,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:08]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:08]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 96.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:08]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:08]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:13]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:13]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506133,
+    total_memory: 8153912,
+    used_memory: 1927864,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.83295,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:13]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:13]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 66.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:13]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:13]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:18]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:18]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506138,
+    total_memory: 8153912,
+    used_memory: 2002544,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.833,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:18]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:18]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 109.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:18]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:18]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:23]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:23]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506143,
+    total_memory: 8153912,
+    used_memory: 1776228,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.79933,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:23]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:23]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 152.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:23]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:23]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:28]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:28]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506148,
+    total_memory: 8153912,
+    used_memory: 2002936,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.66555,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:28]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:28]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 103.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:28]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:28]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:33]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:33]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506153,
+    total_memory: 8153912,
+    used_memory: 1867660,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.866356,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:33]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:33]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 108.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:33]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:33]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:38]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:38]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506158,
+    total_memory: 8153912,
+    used_memory: 1960248,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.86631,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:38]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:38]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 125.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:38]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:38]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:43]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:43]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506163,
+    total_memory: 8153912,
+    used_memory: 1638256,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.89953,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:43]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:43]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 69.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:43]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:43]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:48]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:48]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506168,
+    total_memory: 8153912,
+    used_memory: 1841408,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 99.7994,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:48]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:48]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 110.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:48]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:48]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:53]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:53]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506173,
+    total_memory: 8153912,
+    used_memory: 1606628,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 32.867134,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:53]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:53]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 116.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:53]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:53]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:52:58]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:52:58]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506178,
+    total_memory: 8153912,
+    used_memory: 1605684,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.835781,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:52:58]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:52:58]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 107.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:52:58]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:52:58]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:03]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:03]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506183,
+    total_memory: 8153912,
+    used_memory: 1605672,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.6662225,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:03]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:03]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 93.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:03]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:03]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:08]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:08]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506188,
+    total_memory: 8153912,
+    used_memory: 1605572,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.966989,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:08]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:08]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 118.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:08]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:08]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:13]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:13]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506193,
+    total_memory: 8153912,
+    used_memory: 1605520,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 2.1731863,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:13]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:13]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 106.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:13]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:13]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:18]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:18]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506198,
+    total_memory: 8153912,
+    used_memory: 1605532,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.7661559,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:18]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:18]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 120.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:18]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:18]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:23]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:23]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506203,
+    total_memory: 8153912,
+    used_memory: 1605516,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.631859,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:23]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:23]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 94.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:23]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:23]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:28]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:28]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506208,
+    total_memory: 8153912,
+    used_memory: 1605504,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.56515956,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:28]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:28]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 115.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:28]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:28]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:33]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:33]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506213,
+    total_memory: 8153912,
+    used_memory: 1605468,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.6322453,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:33]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:33]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 107.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:33]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:33]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:38]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:38]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506218,
+    total_memory: 8153912,
+    used_memory: 1605452,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.1314476,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:38]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:38]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 114.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:38]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:38]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:43]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:43]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506223,
+    total_memory: 8153912,
+    used_memory: 1605368,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.3944223,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:43]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:43]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 119.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:43]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:43]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:48]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:48]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506228,
+    total_memory: 8153912,
+    used_memory: 1605348,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.5323118,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:48]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:48]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 99.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:48]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:48]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:53]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:53]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506233,
+    total_memory: 8153912,
+    used_memory: 1605340,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.99966675,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:53]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:53]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 148.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:53]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:53]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:53:58]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:53:58]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506238,
+    total_memory: 8153912,
+    used_memory: 1605636,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.400934,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:53:58]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:53:58]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 91.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:53:58]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:53:58]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:03]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:03]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506243,
+    total_memory: 8153912,
+    used_memory: 1605636,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 2.2992334,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:03]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:03]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 57.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:03]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:03]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:08]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:08]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506248,
+    total_memory: 8153912,
+    used_memory: 1604568,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 2.3714094,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:08]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:08]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 121.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:08]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:08]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:13]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:13]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506253,
+    total_memory: 8153912,
+    used_memory: 1604304,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.4390897,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:13]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:13]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 90.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:13]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:13]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:18]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:18]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506258,
+    total_memory: 8153912,
+    used_memory: 1604292,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.8663779,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:18]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:18]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 91.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:18]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:18]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:23]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:23]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506263,
+    total_memory: 8153912,
+    used_memory: 1604248,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.5994006,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:23]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:23]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 56.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:23]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:23]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:28]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:28]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506268,
+    total_memory: 8153912,
+    used_memory: 1604236,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.7671781,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:28]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:28]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 91.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:28]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:28]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:33]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:33]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506273,
+    total_memory: 8153912,
+    used_memory: 1604292,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.6006006,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:33]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:33]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 56.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:33]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:33]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:38]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:38]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506278,
+    total_memory: 8153912,
+    used_memory: 1604176,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.86695564,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:38]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:38]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 116.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:38]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:38]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:43]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:43]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506283,
+    total_memory: 8153912,
+    used_memory: 1604488,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.9653795,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:43]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:43]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 93.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:43]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:43]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:48]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:48]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506288,
+    total_memory: 8153912,
+    used_memory: 1604328,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.69953364,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:48]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:48]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 93.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:48]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:48]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:53]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:53]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506293,
+    total_memory: 8153912,
+    used_memory: 1604388,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.66577893,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:53]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:53]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 57.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:53]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:53]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:54:58]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:54:58]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506298,
+    total_memory: 8153912,
+    used_memory: 1604624,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.49933425,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:54:58]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:54:58]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 108.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:54:58]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:54:58]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:55:03]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:55:03]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506303,
+    total_memory: 8153912,
+    used_memory: 1604612,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.5326232,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:55:03]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:55:03]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 121.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:55:03]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:55:03]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:55:08]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:55:08]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506308,
+    total_memory: 8153912,
+    used_memory: 1604600,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.62913907,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:55:08]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:55:08]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 56.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:55:08]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:55:08]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:55:13]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:55:13]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506313,
+    total_memory: 8153912,
+    used_memory: 1604580,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.56534755,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:55:13]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:55:13]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 89.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:55:13]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:55:13]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:55:18]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:55:18]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506318,
+    total_memory: 8153912,
+    used_memory: 1604472,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 0.89970005,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:55:18]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:55:18]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 89.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:55:18]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:55:18]|[ale_client]|[INFO]| sleeping for :: 5s|
+|[2020-07-12][03:55:23]|[ale_client]|[INFO]| woke up|
+|[2020-07-12][03:55:23]|[ale_client]|[INFO]| 
+:: SystemInfo {
+    last_updated: 1594506323,
+    total_memory: 8153912,
+    used_memory: 1604460,
+    total_swap: 0,
+    used_swap: 0,
+    cpu_usage: 1.8345565,
+    ela: ProcInfo {
+        name: "ela",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    es: ProcInfo {
+        name: "es",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+    sysevt: ProcInfo {
+        name: "sysevt",
+        used_memory: 914636,
+        used_virtual: 5837815808,
+        cpu_usage: 0.0,
+        read_bytes: 0,
+        total_read_bytes: 2162688,
+        written_bytes: 0,
+        total_written_bytes: 103747584,
+    },
+}|
+|[2020-07-12][03:55:23]|[ale_client]|[INFO]| flushing to db|
+|[2020-07-12][03:55:23]|[sqlx::query]|[DEBUG]| INSERT into system_metrics ..., elapsed: 90.000ns
+
+INSERT into
+  system_metrics (
+    last_updated,
+    total_memory,
+    used_memory,
+    total_swap,
+    used_swap,
+    cpu_usage
+  )
+VALUES
+  ($1, $2, $3, $4, $5, $6);
+|
+|[2020-07-12][03:55:23]|[ale_client]|[INFO]| flushed sucessfully|
+|[2020-07-12][03:55:23]|[ale_client]|[INFO]| sleeping for :: 5s|

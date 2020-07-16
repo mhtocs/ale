@@ -30,14 +30,13 @@ pub struct SystemInfo {
     pub total_swap: i64,
     pub used_swap: i64,
     pub cpu_usage: f32,
-    pub ela: ProcInfo,
-    pub es: ProcInfo,
-    pub sysevt: ProcInfo,
+    pub proc_map: Vec<ProcInfo>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ProcInfo {
     pub name: String,
+    pub pid: i32,
     pub used_memory: u64,
     pub used_virtual: u64,
     pub cpu_usage: f32,
@@ -74,8 +73,9 @@ impl ProcInfo {
         )
     }
 
-    pub fn new(name: &str) -> Self {
+    pub fn new(name: &str, pid: i32) -> Self {
         ProcInfo {
+            pid,
             name: name.to_string(),
             used_memory: 0,
             used_virtual: 0,
@@ -100,24 +100,16 @@ impl ProcInfo {
 
 pub struct SystemUtil {
     pub sys: System,
-    pub ela_pid: i32,
-    pub es_pid: i32,
-    pub sysevt_pid: i32,
     pub info: SystemInfo,
 }
 
 impl SystemUtil {
-    pub fn with(sys: System, ela_pid: i32, es_pid: i32, sysevt_pid: i32) -> Self {
+    pub fn with(sys: System, procs_info: Vec<(&str, i32)>) -> Self {
         SystemUtil {
             sys,
-            ela_pid,
-            es_pid,
-            sysevt_pid,
             info: SystemInfo {
                 last_updated: Local::now().timestamp(),
-                ela: ProcInfo::new("ela"),
-                es: ProcInfo::new("es"),
-                sysevt: ProcInfo::new("sysevt"),
+                proc_map: procs_info.iter().map(|p| ProcInfo::new(p.0, p.1)).collect(),
                 total_memory: 0,
                 used_memory: 0,
                 total_swap: 0,
@@ -135,9 +127,10 @@ impl SystemUtil {
         self.info.total_swap = self.sys.get_total_swap() as i64;
         self.info.used_swap = self.sys.get_used_swap() as i64;
         self.info.cpu_usage = self.sys.get_global_processor_info().get_cpu_usage();
-        self.info.ela.update(&self.sys, self.ela_pid).unwrap();
-        self.info.es.update(&self.sys, self.es_pid).unwrap();
-        self.info.sysevt.update(&self.sys, self.sysevt_pid).unwrap();
+        self.info
+            .proc_map
+            .iter_mut()
+            .for_each(|v| v.update(&self.sys, v.pid).unwrap());
         &self.info
     }
 }
