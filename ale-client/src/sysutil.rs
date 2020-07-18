@@ -1,6 +1,8 @@
+use crate::config::Proc;
 use chrono::Local;
 use serde::{Deserialize, Serialize};
 use std::fmt;
+use std::fs;
 use sysinfo::{ProcessExt, ProcessorExt, System, SystemExt};
 
 type Result<T> = std::result::Result<T, ProcNotFound>;
@@ -44,10 +46,19 @@ pub struct ProcInfo {
     pub total_read_bytes: u64,
     pub written_bytes: u64,
     pub total_written_bytes: u64,
+
+    #[serde(skip_serializing)]
+    pub path: String,
+
+    #[serde(skip_serializing)]
+    pub retry_count: i32,
+
+    pub disabled: bool,
 }
 
 impl ProcInfo {
     pub fn update(&mut self, sys: &System, pid: i32) -> Result<()> {
+        log::info!(">>{:#?}", sys.get_process(pid));
         sys.get_process(pid).map_or(
             {
                 self.reset();
@@ -59,6 +70,7 @@ impl ProcInfo {
             |proc| {
                 self.used_memory = proc.memory();
                 self.used_virtual = proc.virtual_memory();
+
                 self.cpu_usage = proc.cpu_usage() / sys.get_processors().len() as f32;
 
                 let du = proc.disk_usage();
@@ -73,10 +85,11 @@ impl ProcInfo {
         )
     }
 
-    pub fn new(name: &str, pid: i32) -> Self {
+    pub fn new(name: String, pid: i32, path: String) -> Self {
         ProcInfo {
             pid,
-            name: name.to_string(),
+            name,
+            path,
             used_memory: 0,
             used_virtual: 0,
             cpu_usage: 0.0,
@@ -84,6 +97,8 @@ impl ProcInfo {
             total_read_bytes: 0,
             written_bytes: 0,
             total_written_bytes: 0,
+            retry_count: 0,
+            disabled: false,
         }
     }
 
@@ -101,21 +116,34 @@ impl ProcInfo {
 pub struct SystemUtil {
     pub sys: System,
     pub info: SystemInfo,
+    pub max_retry: i32,
 }
 
 impl SystemUtil {
-    pub fn with(sys: System, procs_info: Vec<(&str, i32)>) -> Self {
+    pub fn with(sys: System, procs_info: Vec<Proc>, max_retry: i32) -> Self {
         SystemUtil {
             sys,
             info: SystemInfo {
                 last_updated: Local::now().timestamp(),
-                proc_map: procs_info.iter().map(|p| ProcInfo::new(p.0, p.1)).collect(),
+                proc_map: procs_info
+                    .iter()
+                    .map(|p| {
+                        ProcInfo::new(
+                            p.name.to_string(),
+                            p.pid,
+                            p.path
+                                .as_ref()
+                                .map_or("".to_string(), |f| f.to_str().unwrap().to_string()),
+                        )
+                    })
+                    .collect(),
                 total_memory: 0,
                 used_memory: 0,
                 total_swap: 0,
                 used_swap: 0,
                 cpu_usage: 0.0,
             },
+            max_retry,
         }
     }
 
@@ -127,10 +155,40 @@ impl SystemUtil {
         self.info.total_swap = self.sys.get_total_swap() as i64;
         self.info.used_swap = self.sys.get_used_swap() as i64;
         self.info.cpu_usage = self.sys.get_global_processor_info().get_cpu_usage();
-        self.info
+
+        for (_i, p) in self
+            .info
             .proc_map
             .iter_mut()
-            .for_each(|v| v.update(&self.sys, v.pid).unwrap());
+            .filter(|p| !p.disabled)
+            .enumerate()
+        {
+            match p.update(&self.sys, p.pid) {
+                Ok(_) => (),
+                Err(e) => {
+                    log::error!("encountered error: {:?}, retrying...", e);
+                    if !p.disabled {
+                        p.retry_count += 1;
+                        if !p.path.is_empty() {
+                            let pid = fs::read_to_string(p.path.as_str());
+                            if let Ok(pid) = pid {
+                                log::debug!("got from file:: {}", pid);
+                                let pid: i32 = pid.parse().unwrap(); //TODO use ? to handle this properly
+                                if pid != p.pid {
+                                    p.retry_count = 0;
+                                    log::info!("new pid for {} found :: {}", p.name, pid)
+                                }
+                            }
+                        }
+
+                        if p.retry_count > self.max_retry || p.path.is_empty() {
+                            p.disabled = true;
+                        }
+                    }
+                }
+            }
+        }
+
         &self.info
     }
 }

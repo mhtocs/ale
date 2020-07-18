@@ -1,22 +1,23 @@
 pub mod config;
 pub mod sysutil;
 
+use config::Proc;
 use log::info;
 use std::thread;
 use std::time::Duration;
 use sysinfo::{System, SystemExt};
 use sysutil::SystemUtil;
 
-pub async fn run(pid: i32) {
-    let sys = &mut SystemUtil::with(System::new_all(), vec![("ela", pid)]);
+pub async fn run(procs: Vec<Proc>, max_retry: i32, sleep_delay: u64) {
+    let sys = &mut SystemUtil::with(System::new_all(), procs, max_retry);
     loop {
         let info = sys.get_sys_info();
         info!("\n:: {:#?}", info);
         info!("flushing to db");
 
         info!("flushed sucessfully");
-        info!("sleeping for :: 5s");
-        thread::sleep(Duration::from_secs(5));
+        info!("sleeping for :: {}s", sleep_delay);
+        thread::sleep(Duration::from_secs(sleep_delay));
         info!("woke up");
     }
 }
