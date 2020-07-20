@@ -176,7 +176,8 @@ impl SystemUtil {
                                 let pid: i32 = pid.parse().unwrap(); //TODO use ? to handle this properly
                                 if pid != p.pid {
                                     p.retry_count = 0;
-                                    log::info!("new pid for {} found :: {}", p.name, pid)
+                                    log::info!("new pid for {} found :: {}", p.name, pid);
+                                    p.pid = pid;
                                 }
                             }
                         }
