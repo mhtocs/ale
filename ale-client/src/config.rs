@@ -1,3 +1,4 @@
+use fern::colors::{Color, ColoredLevelConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt;
 use std::panic;
@@ -5,7 +6,7 @@ use std::path::PathBuf;
 use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
-#[structopt(about = "*devtool for eventloganalyzer , pass `-h` for more info")]
+#[structopt(about = "Devtool for eventloganalyzer , pass `-h` for more info")]
 pub struct Opt {
     #[structopt(flatten)]
     pub config: FilePath,
@@ -46,6 +47,9 @@ pub struct Config {
     pub procs: Vec<Proc>,
     pub max_retry: i32,
     pub sleep_delay: u64,
+    pub server_url: String,
+    pub es_url: String,
+    pub loglevel: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -57,20 +61,57 @@ pub struct Proc {
 
 const PKG_NAME: &'static str = env!("CARGO_PKG_NAME");
 
-pub fn init_logger() -> Result<(), fern::InitError> {
+pub fn init_logger(loglevel: &str) -> Result<(), fern::InitError> {
+    let colors_line = ColoredLevelConfig::new()
+        .error(Color::BrightRed)
+        .warn(Color::Yellow)
+        .info(Color::BrightGreen)
+        .debug(Color::BrightYellow)
+        .trace(Color::BrightBlue);
+
+    // let colors_level = colors_line
+    //     .clone()
+    //     .info(Color::BrightGreen)
+    //     .debug(Color::BrightBlue);
+
     fern::Dispatch::new()
-        .format(move |out, message, record| {
-            out.finish(format_args!(
-                "|{}|[{}]|[{}]| {}|",
-                chrono::Local::now().format("[%Y-%m-%d][%H:%M:%S]"),
-                record.target(),
-                record.level(),
-                message
-            ))
+        .level(match loglevel {
+            "info" => log::LevelFilter::Info,
+            "error" => log::LevelFilter::Error,
+            "debug" => log::LevelFilter::Debug,
+            _ => log::LevelFilter::Trace,
         })
-        .level(log::LevelFilter::Debug)
-        .chain(std::io::stdout())
-        .chain(fern::log_file(format!("{}.log", PKG_NAME))?)
+        .chain(
+            fern::Dispatch::new()
+                .format(move |out, message, record| {
+                    out.finish(format_args!(
+                        "{color_line}[{level} {date} {target}:{line_no}]\x1B[0m {message}",
+                        color_line = format_args!(
+                            "\x1B[{}m",
+                            colors_line.get_color(&record.level()).to_fg_str()
+                        ),
+                        level = record.level(), //colors_level.color(record.level()),
+                        date = chrono::Local::now().format("%Y%m%d %H:%M:%S"),
+                        target = record.target(),
+                        line_no = record.line().unwrap_or(0),
+                        message = message,
+                    ));
+                })
+                .chain(std::io::stdout()),
+        )
+        .chain(
+            fern::Dispatch::new()
+                .format(move |out, message, record| {
+                    out.finish(format_args!(
+                        "[{level} {date} {target}] {message}\x1B[0m",
+                        level = record.level(),
+                        date = chrono::Local::now().format("%y%m%d %H:%M:%S"),
+                        target = record.target(),
+                        message = message,
+                    ));
+                })
+                .chain(fern::log_file(format!("{}.log", PKG_NAME))?),
+        )
         .apply()?;
 
     panic::set_hook(Box::new(|info| {

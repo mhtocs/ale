@@ -5,16 +5,16 @@ use std::fmt;
 use std::fs;
 use sysinfo::{ProcessExt, ProcessorExt, System, SystemExt};
 
-type Result<T> = std::result::Result<T, ProcNotFound>;
+type Result<T> = std::result::Result<T, ProcessNotFoundError>;
 
 #[derive(Debug)]
 /// An Error for process not found
-pub struct ProcNotFound {
+pub struct ProcessNotFoundError {
     proc_name: String,
     pid: i32,
 }
 
-impl fmt::Display for ProcNotFound {
+impl fmt::Display for ProcessNotFoundError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
             f,
@@ -48,21 +48,22 @@ pub struct ProcInfo {
     pub total_written_bytes: u64,
 
     #[serde(skip_serializing)]
-    pub path: String,
+    pub pid_filepath: String,
 
     #[serde(skip_serializing)]
     pub retry_count: i32,
 
+    #[serde(skip_serializing)]
     pub disabled: bool,
 }
 
 impl ProcInfo {
     pub fn update(&mut self, sys: &System, pid: i32) -> Result<()> {
-        log::info!(">>{:#?}", sys.get_process(pid));
+        log::debug!("PROCESS INFO :: {:#?}", sys.get_process(pid));
         sys.get_process(pid).map_or(
             {
                 self.reset();
-                Err(ProcNotFound {
+                Err(ProcessNotFoundError {
                     pid,
                     proc_name: self.name.to_string(),
                 })
@@ -89,7 +90,7 @@ impl ProcInfo {
         ProcInfo {
             pid,
             name,
-            path,
+            pid_filepath: path,
             used_memory: 0,
             used_virtual: 0,
             cpu_usage: 0.0,
@@ -147,7 +148,7 @@ impl SystemUtil {
         }
     }
 
-    pub fn get_sys_info(&mut self) -> &SystemInfo {
+    pub async fn get_sys_info(&mut self) -> &SystemInfo {
         self.sys.refresh_all();
         self.info.last_updated = Local::now().timestamp();
         self.info.total_memory = self.sys.get_total_memory() as i64;
@@ -169,8 +170,8 @@ impl SystemUtil {
                     log::error!("encountered error: {:?}, retrying...", e);
                     if !p.disabled {
                         p.retry_count += 1;
-                        if !p.path.is_empty() {
-                            let pid = fs::read_to_string(p.path.as_str());
+                        if !p.pid_filepath.is_empty() {
+                            let pid = fs::read_to_string(p.pid_filepath.as_str());
                             if let Ok(pid) = pid {
                                 log::debug!("got from file:: {}", pid);
                                 let pid: i32 = pid.parse().unwrap(); //TODO use ? to handle this properly
@@ -182,7 +183,7 @@ impl SystemUtil {
                             }
                         }
 
-                        if p.retry_count > self.max_retry || p.path.is_empty() {
+                        if p.retry_count > self.max_retry || p.pid_filepath.is_empty() {
                             p.disabled = true;
                         }
                     }
