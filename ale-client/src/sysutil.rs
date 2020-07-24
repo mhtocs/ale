@@ -59,8 +59,8 @@ pub struct ProcInfo {
 
 impl ProcInfo {
     pub fn update(&mut self, sys: &System, pid: i32) -> Result<()> {
-        log::debug!("PROCESS INFO :: {:#?}", sys.get_process(pid));
-        sys.get_process(pid).map_or(
+        log::debug!("PROCESS INFO :: {:#?}", sys.get_process(pid  as usize));
+        sys.get_process(pid as usize).map_or(
             {
                 self.reset();
                 Err(ProcessNotFoundError {
