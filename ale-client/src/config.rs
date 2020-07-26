@@ -69,13 +69,8 @@ pub fn init_logger(loglevel: &str) -> Result<(), fern::InitError> {
         .debug(Color::BrightYellow)
         .trace(Color::BrightBlue);
 
-    // let colors_level = colors_line
-    //     .clone()
-    //     .info(Color::BrightGreen)
-    //     .debug(Color::BrightBlue);
-
     fern::Dispatch::new()
-        .level(match loglevel {
+        .level(match loglevel.to_lowercase().as_str() {
             "info" => log::LevelFilter::Info,
             "error" => log::LevelFilter::Error,
             "debug" => log::LevelFilter::Debug,
@@ -85,7 +80,7 @@ pub fn init_logger(loglevel: &str) -> Result<(), fern::InitError> {
             fern::Dispatch::new()
                 .format(move |out, message, record| {
                     out.finish(format_args!(
-                        "{color_line}[{level} {date} {target}:{line_no}]\x1B[0m {message}",
+                        "{color_line}[{level:5} {date} {target}:{line_no}]\x1B[0m {message}",
                         color_line = format_args!(
                             "\x1B[{}m",
                             colors_line.get_color(&record.level()).to_fg_str()
@@ -114,8 +109,8 @@ pub fn init_logger(loglevel: &str) -> Result<(), fern::InitError> {
         )
         .apply()?;
 
-    panic::set_hook(Box::new(|info| {
-        log::error!("it panicked :: {}", info);
+    panic::set_hook(Box::new(|err| {
+        log::error!("process panicked :: {}", err);
     }));
     Ok(())
 }

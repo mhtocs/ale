@@ -128,6 +128,9 @@ pub struct SystemUtil {
 
 impl SystemUtil {
     pub fn with(sys: System, procs_info: Vec<Proc>, max_retry: i32) -> Self {
+        procs_info.iter().for_each(|p| if p.path.is_none() {
+            log::warn!("PID PATH (pid_path) is not specified for process: {}, if process's pid changes then metrics wont be collected",p.name);
+        });
         SystemUtil {
             sys,
             info: SystemInfo {

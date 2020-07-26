@@ -21,10 +21,14 @@ pub async fn run(cfg: Config) {
     loop {
         let (sysinfo, indexing_rate) = join!(
             sys.get_sys_info(),
-            get_index_stats(&cfg.es_url, &mut last_timestamp, &mut last_index_total)
+            get_index_stats(&cfg.es_url, &mut last_timestamp, &mut last_index_total,)
         );
         debug!("\nSYSINFO :: {:#?}", sysinfo);
         debug!("\nESINFO :: {:#?}", indexing_rate);
+        match indexing_rate {
+            Ok(rate) => info!("INDEXING RATE: {} docs/s", rate),
+            Err(e) => error!("Encountered error while fetching INDEXING RATE {}", e),
+        }
         let resp = post(sysinfo, &cfg.server_url);
         match resp {
             Ok(res) => match res.status() {
