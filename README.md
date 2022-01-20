@@ -1,3 +1,3 @@
 # ale.rs
 
-🍺 devtool to diagnose & analyze ela
+🍺 a server/client in rust
